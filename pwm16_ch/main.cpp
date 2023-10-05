@@ -1,5 +1,7 @@
 #include <array>
 #include <cstdio>
+#include <cstdlib>
+#include <exception>
 
 #include <libhal-armcortex/dwt_counter.hpp>
 #include <libhal-armcortex/startup.hpp>
@@ -9,6 +11,7 @@
 #include <libhal-lpc40xx/uart.hpp>
 #include <libhal-util/serial.hpp>
 #include <libhal-util/steady_clock.hpp>
+#include <libhal/i2c.hpp>
 #include <libhal/pwm.hpp>
 
 class pca9685
@@ -39,7 +42,7 @@ public:
     friend class pca9685;
   };
 
-  enum class output_enable_state
+  enum class disabled_pin_state
   {
     /// Set all pins to LOW voltage when output enable is asserted.
     set_low = 0b00,
@@ -53,19 +56,27 @@ public:
 
   struct settings
   {
-    bool use_external_clock = false;
     bool invert_outputs = false;
     bool output_changes_on_i2c_acknowledge = false;
     bool totem_pole_output = true;
+    disabled_pin_state pin_disabled_state = disabled_pin_state::set_low;
+    /// Set this to `std::nullopt` to use the internal 25MHz oscillator
+    /// To use an external oscillator, set this to the external oscillator's
+    /// frequency.
+    std::optional<hal::hertz> external_oscillator_hz = std::nullopt;
   };
 
-  template<size_t Channel>
-  static hal::result<pwm_channel> create()
+  static constexpr hal::hertz internal_oscillator()
   {
-    static constexpr size_t max_channel_count = 16;
-    static_assert(Channel <= max_channel_count,
-                  "The PCA9685 only has 16 channels!");
-    return
+    using namespace hal::literals;
+    return 25.0_MHz;
+  }
+
+  static hal::result<pca9685> create(hal::i2c& p_i2c, hal::byte p_address)
+  {
+    using namespace hal::literals;
+    HAL_CHECK(p_i2c.configure(hal::i2c::settings{ .clock_rate = 1.0_MHz }));
+    return pca9685(p_i2c, p_address);
   }
 
   template<hal::byte Channel>
@@ -78,16 +89,36 @@ public:
     return pwm_channel(this, Channel);
   }
 
-  hal::status configure() {}
-  hal::status restart() {}
+  hal::status configure(settings p_settings);
+  hal::status restart();
 
 private:
-  pca9685() {}
+  pca9685(hal::i2c& p_i2c, hal::byte p_address)
+    : m_i2c(&p_i2c)
+    , m_address(p_address)
+  {
+  }
 
   hal::status set_channel_frequency(hal::hertz p_frequency,
                                     hal::byte p_channel);
   hal::status set_channel_duty_cycle(float p_duty_cycle, hal::byte p_channel);
+
+  hal::i2c* m_i2c;
+  hal::byte m_address;
+  hal::hertz m_frequency = internal_oscillator();
 };
+
+hal::status
+pca9685::configure(pca9685::settings p_settings)
+{
+  return hal::success();
+}
+
+hal::status
+pca9685::restart()
+{
+  return hal::success();
+}
 
 hal::status
 pca9685::set_channel_frequency([[maybe_unused]] hal::hertz p_frequency,
