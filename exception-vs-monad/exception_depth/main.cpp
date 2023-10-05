@@ -127,7 +127,6 @@ std::terminate_handler __terminate_handler = my_terminate;
 // Add generated code below
 // =============================================================================
 
-
 int fallible_function0_group0();
 volatile int side_effect0 = 0;
 
@@ -160,19 +159,20 @@ volatile int side_effect9 = 0;
 
 int return_error()
 {
-fallible_function0_group0();
-fallible_function0_group1();
-fallible_function0_group2();
-fallible_function0_group3();
-fallible_function0_group4();
-fallible_function0_group5();
-fallible_function0_group6();
-fallible_function0_group7();
-fallible_function0_group8();
-fallible_function0_group9();
-  return side_effect0+side_effect1+side_effect2+side_effect3+side_effect4+side_effect5+side_effect6+side_effect7+side_effect8+side_effect9;
+  fallible_function0_group0();
+  fallible_function0_group1();
+  fallible_function0_group2();
+  fallible_function0_group3();
+  fallible_function0_group4();
+  fallible_function0_group5();
+  fallible_function0_group6();
+  fallible_function0_group7();
+  fallible_function0_group8();
+  fallible_function0_group9();
+  return side_effect0 + side_effect1 + side_effect2 + side_effect3 +
+         side_effect4 + side_effect5 + side_effect6 + side_effect7 +
+         side_effect8 + side_effect9;
 }
-
 
 int fallible_function1_group0();
 int fallible_function0_group0()
@@ -181,8 +181,7 @@ int fallible_function0_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function1_group0();
+  side_effect0 = side_effect0 + fallible_function1_group0();
   return side_effect0;
 }
 
@@ -193,8 +192,7 @@ int fallible_function1_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function2_group0();
+  side_effect0 = side_effect0 + fallible_function2_group0();
   return side_effect0;
 }
 
@@ -205,8 +203,7 @@ int fallible_function2_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function3_group0();
+  side_effect0 = side_effect0 + fallible_function3_group0();
   return side_effect0;
 }
 
@@ -217,8 +214,7 @@ int fallible_function3_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function4_group0();
+  side_effect0 = side_effect0 + fallible_function4_group0();
   return side_effect0;
 }
 
@@ -229,8 +225,7 @@ int fallible_function4_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function5_group0();
+  side_effect0 = side_effect0 + fallible_function5_group0();
   return side_effect0;
 }
 
@@ -241,8 +236,7 @@ int fallible_function5_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function6_group0();
+  side_effect0 = side_effect0 + fallible_function6_group0();
   return side_effect0;
 }
 
@@ -253,8 +247,7 @@ int fallible_function6_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function7_group0();
+  side_effect0 = side_effect0 + fallible_function7_group0();
   return side_effect0;
 }
 
@@ -265,8 +258,7 @@ int fallible_function7_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function8_group0();
+  side_effect0 = side_effect0 + fallible_function8_group0();
   return side_effect0;
 }
 
@@ -277,8 +269,7 @@ int fallible_function8_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function9_group0();
+  side_effect0 = side_effect0 + fallible_function9_group0();
   return side_effect0;
 }
 
@@ -289,8 +280,7 @@ int fallible_function9_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function10_group0();
+  side_effect0 = side_effect0 + fallible_function10_group0();
   return side_effect0;
 }
 
@@ -301,8 +291,7 @@ int fallible_function10_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function11_group0();
+  side_effect0 = side_effect0 + fallible_function11_group0();
   return side_effect0;
 }
 
@@ -313,8 +302,7 @@ int fallible_function11_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function12_group0();
+  side_effect0 = side_effect0 + fallible_function12_group0();
   return side_effect0;
 }
 
@@ -325,8 +313,7 @@ int fallible_function12_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function13_group0();
+  side_effect0 = side_effect0 + fallible_function13_group0();
   return side_effect0;
 }
 
@@ -337,8 +324,7 @@ int fallible_function13_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function14_group0();
+  side_effect0 = side_effect0 + fallible_function14_group0();
   return side_effect0;
 }
 
@@ -349,8 +335,7 @@ int fallible_function14_group0()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect0 = side_effect0 +
-    fallible_function15_group0();
+  side_effect0 = side_effect0 + fallible_function15_group0();
   return side_effect0;
 }
 
@@ -370,8 +355,7 @@ int fallible_function0_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function1_group1();
+  side_effect1 = side_effect1 + fallible_function1_group1();
   return side_effect1;
 }
 
@@ -382,8 +366,7 @@ int fallible_function1_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function2_group1();
+  side_effect1 = side_effect1 + fallible_function2_group1();
   return side_effect1;
 }
 
@@ -394,8 +377,7 @@ int fallible_function2_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function3_group1();
+  side_effect1 = side_effect1 + fallible_function3_group1();
   return side_effect1;
 }
 
@@ -406,8 +388,7 @@ int fallible_function3_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function4_group1();
+  side_effect1 = side_effect1 + fallible_function4_group1();
   return side_effect1;
 }
 
@@ -418,8 +399,7 @@ int fallible_function4_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function5_group1();
+  side_effect1 = side_effect1 + fallible_function5_group1();
   return side_effect1;
 }
 
@@ -430,8 +410,7 @@ int fallible_function5_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function6_group1();
+  side_effect1 = side_effect1 + fallible_function6_group1();
   return side_effect1;
 }
 
@@ -442,8 +421,7 @@ int fallible_function6_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function7_group1();
+  side_effect1 = side_effect1 + fallible_function7_group1();
   return side_effect1;
 }
 
@@ -454,8 +432,7 @@ int fallible_function7_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function8_group1();
+  side_effect1 = side_effect1 + fallible_function8_group1();
   return side_effect1;
 }
 
@@ -466,8 +443,7 @@ int fallible_function8_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function9_group1();
+  side_effect1 = side_effect1 + fallible_function9_group1();
   return side_effect1;
 }
 
@@ -478,8 +454,7 @@ int fallible_function9_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function10_group1();
+  side_effect1 = side_effect1 + fallible_function10_group1();
   return side_effect1;
 }
 
@@ -490,8 +465,7 @@ int fallible_function10_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function11_group1();
+  side_effect1 = side_effect1 + fallible_function11_group1();
   return side_effect1;
 }
 
@@ -502,8 +476,7 @@ int fallible_function11_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function12_group1();
+  side_effect1 = side_effect1 + fallible_function12_group1();
   return side_effect1;
 }
 
@@ -514,8 +487,7 @@ int fallible_function12_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function13_group1();
+  side_effect1 = side_effect1 + fallible_function13_group1();
   return side_effect1;
 }
 
@@ -526,8 +498,7 @@ int fallible_function13_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function14_group1();
+  side_effect1 = side_effect1 + fallible_function14_group1();
   return side_effect1;
 }
 
@@ -538,8 +509,7 @@ int fallible_function14_group1()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect1 = side_effect1 +
-    fallible_function15_group1();
+  side_effect1 = side_effect1 + fallible_function15_group1();
   return side_effect1;
 }
 
@@ -559,8 +529,7 @@ int fallible_function0_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function1_group2();
+  side_effect2 = side_effect2 + fallible_function1_group2();
   return side_effect2;
 }
 
@@ -571,8 +540,7 @@ int fallible_function1_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function2_group2();
+  side_effect2 = side_effect2 + fallible_function2_group2();
   return side_effect2;
 }
 
@@ -583,8 +551,7 @@ int fallible_function2_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function3_group2();
+  side_effect2 = side_effect2 + fallible_function3_group2();
   return side_effect2;
 }
 
@@ -595,8 +562,7 @@ int fallible_function3_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function4_group2();
+  side_effect2 = side_effect2 + fallible_function4_group2();
   return side_effect2;
 }
 
@@ -607,8 +573,7 @@ int fallible_function4_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function5_group2();
+  side_effect2 = side_effect2 + fallible_function5_group2();
   return side_effect2;
 }
 
@@ -619,8 +584,7 @@ int fallible_function5_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function6_group2();
+  side_effect2 = side_effect2 + fallible_function6_group2();
   return side_effect2;
 }
 
@@ -631,8 +595,7 @@ int fallible_function6_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function7_group2();
+  side_effect2 = side_effect2 + fallible_function7_group2();
   return side_effect2;
 }
 
@@ -643,8 +606,7 @@ int fallible_function7_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function8_group2();
+  side_effect2 = side_effect2 + fallible_function8_group2();
   return side_effect2;
 }
 
@@ -655,8 +617,7 @@ int fallible_function8_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function9_group2();
+  side_effect2 = side_effect2 + fallible_function9_group2();
   return side_effect2;
 }
 
@@ -667,8 +628,7 @@ int fallible_function9_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function10_group2();
+  side_effect2 = side_effect2 + fallible_function10_group2();
   return side_effect2;
 }
 
@@ -679,8 +639,7 @@ int fallible_function10_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function11_group2();
+  side_effect2 = side_effect2 + fallible_function11_group2();
   return side_effect2;
 }
 
@@ -691,8 +650,7 @@ int fallible_function11_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function12_group2();
+  side_effect2 = side_effect2 + fallible_function12_group2();
   return side_effect2;
 }
 
@@ -703,8 +661,7 @@ int fallible_function12_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function13_group2();
+  side_effect2 = side_effect2 + fallible_function13_group2();
   return side_effect2;
 }
 
@@ -715,8 +672,7 @@ int fallible_function13_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function14_group2();
+  side_effect2 = side_effect2 + fallible_function14_group2();
   return side_effect2;
 }
 
@@ -727,8 +683,7 @@ int fallible_function14_group2()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect2 = side_effect2 +
-    fallible_function15_group2();
+  side_effect2 = side_effect2 + fallible_function15_group2();
   return side_effect2;
 }
 
@@ -748,8 +703,7 @@ int fallible_function0_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function1_group3();
+  side_effect3 = side_effect3 + fallible_function1_group3();
   return side_effect3;
 }
 
@@ -760,8 +714,7 @@ int fallible_function1_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function2_group3();
+  side_effect3 = side_effect3 + fallible_function2_group3();
   return side_effect3;
 }
 
@@ -772,8 +725,7 @@ int fallible_function2_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function3_group3();
+  side_effect3 = side_effect3 + fallible_function3_group3();
   return side_effect3;
 }
 
@@ -784,8 +736,7 @@ int fallible_function3_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function4_group3();
+  side_effect3 = side_effect3 + fallible_function4_group3();
   return side_effect3;
 }
 
@@ -796,8 +747,7 @@ int fallible_function4_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function5_group3();
+  side_effect3 = side_effect3 + fallible_function5_group3();
   return side_effect3;
 }
 
@@ -808,8 +758,7 @@ int fallible_function5_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function6_group3();
+  side_effect3 = side_effect3 + fallible_function6_group3();
   return side_effect3;
 }
 
@@ -820,8 +769,7 @@ int fallible_function6_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function7_group3();
+  side_effect3 = side_effect3 + fallible_function7_group3();
   return side_effect3;
 }
 
@@ -832,8 +780,7 @@ int fallible_function7_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function8_group3();
+  side_effect3 = side_effect3 + fallible_function8_group3();
   return side_effect3;
 }
 
@@ -844,8 +791,7 @@ int fallible_function8_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function9_group3();
+  side_effect3 = side_effect3 + fallible_function9_group3();
   return side_effect3;
 }
 
@@ -856,8 +802,7 @@ int fallible_function9_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function10_group3();
+  side_effect3 = side_effect3 + fallible_function10_group3();
   return side_effect3;
 }
 
@@ -868,8 +813,7 @@ int fallible_function10_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function11_group3();
+  side_effect3 = side_effect3 + fallible_function11_group3();
   return side_effect3;
 }
 
@@ -880,8 +824,7 @@ int fallible_function11_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function12_group3();
+  side_effect3 = side_effect3 + fallible_function12_group3();
   return side_effect3;
 }
 
@@ -892,8 +835,7 @@ int fallible_function12_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function13_group3();
+  side_effect3 = side_effect3 + fallible_function13_group3();
   return side_effect3;
 }
 
@@ -904,8 +846,7 @@ int fallible_function13_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function14_group3();
+  side_effect3 = side_effect3 + fallible_function14_group3();
   return side_effect3;
 }
 
@@ -916,8 +857,7 @@ int fallible_function14_group3()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect3 = side_effect3 +
-    fallible_function15_group3();
+  side_effect3 = side_effect3 + fallible_function15_group3();
   return side_effect3;
 }
 
@@ -937,8 +877,7 @@ int fallible_function0_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function1_group4();
+  side_effect4 = side_effect4 + fallible_function1_group4();
   return side_effect4;
 }
 
@@ -949,8 +888,7 @@ int fallible_function1_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function2_group4();
+  side_effect4 = side_effect4 + fallible_function2_group4();
   return side_effect4;
 }
 
@@ -961,8 +899,7 @@ int fallible_function2_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function3_group4();
+  side_effect4 = side_effect4 + fallible_function3_group4();
   return side_effect4;
 }
 
@@ -973,8 +910,7 @@ int fallible_function3_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function4_group4();
+  side_effect4 = side_effect4 + fallible_function4_group4();
   return side_effect4;
 }
 
@@ -985,8 +921,7 @@ int fallible_function4_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function5_group4();
+  side_effect4 = side_effect4 + fallible_function5_group4();
   return side_effect4;
 }
 
@@ -997,8 +932,7 @@ int fallible_function5_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function6_group4();
+  side_effect4 = side_effect4 + fallible_function6_group4();
   return side_effect4;
 }
 
@@ -1009,8 +943,7 @@ int fallible_function6_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function7_group4();
+  side_effect4 = side_effect4 + fallible_function7_group4();
   return side_effect4;
 }
 
@@ -1021,8 +954,7 @@ int fallible_function7_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function8_group4();
+  side_effect4 = side_effect4 + fallible_function8_group4();
   return side_effect4;
 }
 
@@ -1033,8 +965,7 @@ int fallible_function8_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function9_group4();
+  side_effect4 = side_effect4 + fallible_function9_group4();
   return side_effect4;
 }
 
@@ -1045,8 +976,7 @@ int fallible_function9_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function10_group4();
+  side_effect4 = side_effect4 + fallible_function10_group4();
   return side_effect4;
 }
 
@@ -1057,8 +987,7 @@ int fallible_function10_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function11_group4();
+  side_effect4 = side_effect4 + fallible_function11_group4();
   return side_effect4;
 }
 
@@ -1069,8 +998,7 @@ int fallible_function11_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function12_group4();
+  side_effect4 = side_effect4 + fallible_function12_group4();
   return side_effect4;
 }
 
@@ -1081,8 +1009,7 @@ int fallible_function12_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function13_group4();
+  side_effect4 = side_effect4 + fallible_function13_group4();
   return side_effect4;
 }
 
@@ -1093,8 +1020,7 @@ int fallible_function13_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function14_group4();
+  side_effect4 = side_effect4 + fallible_function14_group4();
   return side_effect4;
 }
 
@@ -1105,8 +1031,7 @@ int fallible_function14_group4()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect4 = side_effect4 +
-    fallible_function15_group4();
+  side_effect4 = side_effect4 + fallible_function15_group4();
   return side_effect4;
 }
 
@@ -1126,8 +1051,7 @@ int fallible_function0_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function1_group5();
+  side_effect5 = side_effect5 + fallible_function1_group5();
   return side_effect5;
 }
 
@@ -1138,8 +1062,7 @@ int fallible_function1_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function2_group5();
+  side_effect5 = side_effect5 + fallible_function2_group5();
   return side_effect5;
 }
 
@@ -1150,8 +1073,7 @@ int fallible_function2_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function3_group5();
+  side_effect5 = side_effect5 + fallible_function3_group5();
   return side_effect5;
 }
 
@@ -1162,8 +1084,7 @@ int fallible_function3_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function4_group5();
+  side_effect5 = side_effect5 + fallible_function4_group5();
   return side_effect5;
 }
 
@@ -1174,8 +1095,7 @@ int fallible_function4_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function5_group5();
+  side_effect5 = side_effect5 + fallible_function5_group5();
   return side_effect5;
 }
 
@@ -1186,8 +1106,7 @@ int fallible_function5_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function6_group5();
+  side_effect5 = side_effect5 + fallible_function6_group5();
   return side_effect5;
 }
 
@@ -1198,8 +1117,7 @@ int fallible_function6_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function7_group5();
+  side_effect5 = side_effect5 + fallible_function7_group5();
   return side_effect5;
 }
 
@@ -1210,8 +1128,7 @@ int fallible_function7_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function8_group5();
+  side_effect5 = side_effect5 + fallible_function8_group5();
   return side_effect5;
 }
 
@@ -1222,8 +1139,7 @@ int fallible_function8_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function9_group5();
+  side_effect5 = side_effect5 + fallible_function9_group5();
   return side_effect5;
 }
 
@@ -1234,8 +1150,7 @@ int fallible_function9_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function10_group5();
+  side_effect5 = side_effect5 + fallible_function10_group5();
   return side_effect5;
 }
 
@@ -1246,8 +1161,7 @@ int fallible_function10_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function11_group5();
+  side_effect5 = side_effect5 + fallible_function11_group5();
   return side_effect5;
 }
 
@@ -1258,8 +1172,7 @@ int fallible_function11_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function12_group5();
+  side_effect5 = side_effect5 + fallible_function12_group5();
   return side_effect5;
 }
 
@@ -1270,8 +1183,7 @@ int fallible_function12_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function13_group5();
+  side_effect5 = side_effect5 + fallible_function13_group5();
   return side_effect5;
 }
 
@@ -1282,8 +1194,7 @@ int fallible_function13_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function14_group5();
+  side_effect5 = side_effect5 + fallible_function14_group5();
   return side_effect5;
 }
 
@@ -1294,8 +1205,7 @@ int fallible_function14_group5()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect5 = side_effect5 +
-    fallible_function15_group5();
+  side_effect5 = side_effect5 + fallible_function15_group5();
   return side_effect5;
 }
 
@@ -1315,8 +1225,7 @@ int fallible_function0_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function1_group6();
+  side_effect6 = side_effect6 + fallible_function1_group6();
   return side_effect6;
 }
 
@@ -1327,8 +1236,7 @@ int fallible_function1_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function2_group6();
+  side_effect6 = side_effect6 + fallible_function2_group6();
   return side_effect6;
 }
 
@@ -1339,8 +1247,7 @@ int fallible_function2_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function3_group6();
+  side_effect6 = side_effect6 + fallible_function3_group6();
   return side_effect6;
 }
 
@@ -1351,8 +1258,7 @@ int fallible_function3_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function4_group6();
+  side_effect6 = side_effect6 + fallible_function4_group6();
   return side_effect6;
 }
 
@@ -1363,8 +1269,7 @@ int fallible_function4_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function5_group6();
+  side_effect6 = side_effect6 + fallible_function5_group6();
   return side_effect6;
 }
 
@@ -1375,8 +1280,7 @@ int fallible_function5_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function6_group6();
+  side_effect6 = side_effect6 + fallible_function6_group6();
   return side_effect6;
 }
 
@@ -1387,8 +1291,7 @@ int fallible_function6_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function7_group6();
+  side_effect6 = side_effect6 + fallible_function7_group6();
   return side_effect6;
 }
 
@@ -1399,8 +1302,7 @@ int fallible_function7_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function8_group6();
+  side_effect6 = side_effect6 + fallible_function8_group6();
   return side_effect6;
 }
 
@@ -1411,8 +1313,7 @@ int fallible_function8_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function9_group6();
+  side_effect6 = side_effect6 + fallible_function9_group6();
   return side_effect6;
 }
 
@@ -1423,8 +1324,7 @@ int fallible_function9_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function10_group6();
+  side_effect6 = side_effect6 + fallible_function10_group6();
   return side_effect6;
 }
 
@@ -1435,8 +1335,7 @@ int fallible_function10_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function11_group6();
+  side_effect6 = side_effect6 + fallible_function11_group6();
   return side_effect6;
 }
 
@@ -1447,8 +1346,7 @@ int fallible_function11_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function12_group6();
+  side_effect6 = side_effect6 + fallible_function12_group6();
   return side_effect6;
 }
 
@@ -1459,8 +1357,7 @@ int fallible_function12_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function13_group6();
+  side_effect6 = side_effect6 + fallible_function13_group6();
   return side_effect6;
 }
 
@@ -1471,8 +1368,7 @@ int fallible_function13_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function14_group6();
+  side_effect6 = side_effect6 + fallible_function14_group6();
   return side_effect6;
 }
 
@@ -1483,8 +1379,7 @@ int fallible_function14_group6()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect6 = side_effect6 +
-    fallible_function15_group6();
+  side_effect6 = side_effect6 + fallible_function15_group6();
   return side_effect6;
 }
 
@@ -1504,8 +1399,7 @@ int fallible_function0_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function1_group7();
+  side_effect7 = side_effect7 + fallible_function1_group7();
   return side_effect7;
 }
 
@@ -1516,8 +1410,7 @@ int fallible_function1_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function2_group7();
+  side_effect7 = side_effect7 + fallible_function2_group7();
   return side_effect7;
 }
 
@@ -1528,8 +1421,7 @@ int fallible_function2_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function3_group7();
+  side_effect7 = side_effect7 + fallible_function3_group7();
   return side_effect7;
 }
 
@@ -1540,8 +1432,7 @@ int fallible_function3_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function4_group7();
+  side_effect7 = side_effect7 + fallible_function4_group7();
   return side_effect7;
 }
 
@@ -1552,8 +1443,7 @@ int fallible_function4_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function5_group7();
+  side_effect7 = side_effect7 + fallible_function5_group7();
   return side_effect7;
 }
 
@@ -1564,8 +1454,7 @@ int fallible_function5_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function6_group7();
+  side_effect7 = side_effect7 + fallible_function6_group7();
   return side_effect7;
 }
 
@@ -1576,8 +1465,7 @@ int fallible_function6_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function7_group7();
+  side_effect7 = side_effect7 + fallible_function7_group7();
   return side_effect7;
 }
 
@@ -1588,8 +1476,7 @@ int fallible_function7_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function8_group7();
+  side_effect7 = side_effect7 + fallible_function8_group7();
   return side_effect7;
 }
 
@@ -1600,8 +1487,7 @@ int fallible_function8_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function9_group7();
+  side_effect7 = side_effect7 + fallible_function9_group7();
   return side_effect7;
 }
 
@@ -1612,8 +1498,7 @@ int fallible_function9_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function10_group7();
+  side_effect7 = side_effect7 + fallible_function10_group7();
   return side_effect7;
 }
 
@@ -1624,8 +1509,7 @@ int fallible_function10_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function11_group7();
+  side_effect7 = side_effect7 + fallible_function11_group7();
   return side_effect7;
 }
 
@@ -1636,8 +1520,7 @@ int fallible_function11_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function12_group7();
+  side_effect7 = side_effect7 + fallible_function12_group7();
   return side_effect7;
 }
 
@@ -1648,8 +1531,7 @@ int fallible_function12_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function13_group7();
+  side_effect7 = side_effect7 + fallible_function13_group7();
   return side_effect7;
 }
 
@@ -1660,8 +1542,7 @@ int fallible_function13_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function14_group7();
+  side_effect7 = side_effect7 + fallible_function14_group7();
   return side_effect7;
 }
 
@@ -1672,8 +1553,7 @@ int fallible_function14_group7()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect7 = side_effect7 +
-    fallible_function15_group7();
+  side_effect7 = side_effect7 + fallible_function15_group7();
   return side_effect7;
 }
 
@@ -1693,8 +1573,7 @@ int fallible_function0_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function1_group8();
+  side_effect8 = side_effect8 + fallible_function1_group8();
   return side_effect8;
 }
 
@@ -1705,8 +1584,7 @@ int fallible_function1_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function2_group8();
+  side_effect8 = side_effect8 + fallible_function2_group8();
   return side_effect8;
 }
 
@@ -1717,8 +1595,7 @@ int fallible_function2_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function3_group8();
+  side_effect8 = side_effect8 + fallible_function3_group8();
   return side_effect8;
 }
 
@@ -1729,8 +1606,7 @@ int fallible_function3_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function4_group8();
+  side_effect8 = side_effect8 + fallible_function4_group8();
   return side_effect8;
 }
 
@@ -1741,8 +1617,7 @@ int fallible_function4_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function5_group8();
+  side_effect8 = side_effect8 + fallible_function5_group8();
   return side_effect8;
 }
 
@@ -1753,8 +1628,7 @@ int fallible_function5_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function6_group8();
+  side_effect8 = side_effect8 + fallible_function6_group8();
   return side_effect8;
 }
 
@@ -1765,8 +1639,7 @@ int fallible_function6_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function7_group8();
+  side_effect8 = side_effect8 + fallible_function7_group8();
   return side_effect8;
 }
 
@@ -1777,8 +1650,7 @@ int fallible_function7_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function8_group8();
+  side_effect8 = side_effect8 + fallible_function8_group8();
   return side_effect8;
 }
 
@@ -1789,8 +1661,7 @@ int fallible_function8_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function9_group8();
+  side_effect8 = side_effect8 + fallible_function9_group8();
   return side_effect8;
 }
 
@@ -1801,8 +1672,7 @@ int fallible_function9_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function10_group8();
+  side_effect8 = side_effect8 + fallible_function10_group8();
   return side_effect8;
 }
 
@@ -1813,8 +1683,7 @@ int fallible_function10_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function11_group8();
+  side_effect8 = side_effect8 + fallible_function11_group8();
   return side_effect8;
 }
 
@@ -1825,8 +1694,7 @@ int fallible_function11_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function12_group8();
+  side_effect8 = side_effect8 + fallible_function12_group8();
   return side_effect8;
 }
 
@@ -1837,8 +1705,7 @@ int fallible_function12_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function13_group8();
+  side_effect8 = side_effect8 + fallible_function13_group8();
   return side_effect8;
 }
 
@@ -1849,8 +1716,7 @@ int fallible_function13_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function14_group8();
+  side_effect8 = side_effect8 + fallible_function14_group8();
   return side_effect8;
 }
 
@@ -1861,8 +1727,7 @@ int fallible_function14_group8()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect8 = side_effect8 +
-    fallible_function15_group8();
+  side_effect8 = side_effect8 + fallible_function15_group8();
   return side_effect8;
 }
 
@@ -1882,8 +1747,7 @@ int fallible_function0_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(0 * 0 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function1_group9();
+  side_effect9 = side_effect9 + fallible_function1_group9();
   return side_effect9;
 }
 
@@ -1894,8 +1758,7 @@ int fallible_function1_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(1 * 1 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function2_group9();
+  side_effect9 = side_effect9 + fallible_function2_group9();
   return side_effect9;
 }
 
@@ -1906,8 +1769,7 @@ int fallible_function2_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(2 * 2 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function3_group9();
+  side_effect9 = side_effect9 + fallible_function3_group9();
   return side_effect9;
 }
 
@@ -1918,8 +1780,7 @@ int fallible_function3_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(3 * 3 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function4_group9();
+  side_effect9 = side_effect9 + fallible_function4_group9();
   return side_effect9;
 }
 
@@ -1930,8 +1791,7 @@ int fallible_function4_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(4 * 4 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function5_group9();
+  side_effect9 = side_effect9 + fallible_function5_group9();
   return side_effect9;
 }
 
@@ -1942,8 +1802,7 @@ int fallible_function5_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(5 * 5 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function6_group9();
+  side_effect9 = side_effect9 + fallible_function6_group9();
   return side_effect9;
 }
 
@@ -1954,8 +1813,7 @@ int fallible_function6_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(6 * 6 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function7_group9();
+  side_effect9 = side_effect9 + fallible_function7_group9();
   return side_effect9;
 }
 
@@ -1966,8 +1824,7 @@ int fallible_function7_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(7 * 7 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function8_group9();
+  side_effect9 = side_effect9 + fallible_function8_group9();
   return side_effect9;
 }
 
@@ -1978,8 +1835,7 @@ int fallible_function8_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(8 * 8 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function9_group9();
+  side_effect9 = side_effect9 + fallible_function9_group9();
   return side_effect9;
 }
 
@@ -1990,8 +1846,7 @@ int fallible_function9_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(9 * 9 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function10_group9();
+  side_effect9 = side_effect9 + fallible_function10_group9();
   return side_effect9;
 }
 
@@ -2002,8 +1857,7 @@ int fallible_function10_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(10 * 10 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function11_group9();
+  side_effect9 = side_effect9 + fallible_function11_group9();
   return side_effect9;
 }
 
@@ -2014,8 +1868,7 @@ int fallible_function11_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(11 * 11 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function12_group9();
+  side_effect9 = side_effect9 + fallible_function12_group9();
   return side_effect9;
 }
 
@@ -2026,8 +1879,7 @@ int fallible_function12_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(12 * 12 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function13_group9();
+  side_effect9 = side_effect9 + fallible_function13_group9();
   return side_effect9;
 }
 
@@ -2038,8 +1890,7 @@ int fallible_function13_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(13 * 13 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function14_group9();
+  side_effect9 = side_effect9 + fallible_function14_group9();
   return side_effect9;
 }
 
@@ -2050,8 +1901,7 @@ int fallible_function14_group9()
   result.trigger();
   auto result2 = non_trivial_destructor(14 * 14 * 2);
   result2.trigger();
-  side_effect9 = side_effect9 +
-    fallible_function15_group9();
+  side_effect9 = side_effect9 + fallible_function15_group9();
   return side_effect9;
 }
 
@@ -2063,4 +1913,3 @@ int fallible_function15_group9()
   result2.trigger();
   return side_effect9 + 1;
 }
-

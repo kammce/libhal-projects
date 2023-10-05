@@ -14,7 +14,7 @@
 
 cmake_minimum_required(VERSION 3.20)
 
-project(exception.elf VERSION 0.0.1 LANGUAGES CXX)
+project(exception_performance.elf VERSION 0.0.1 LANGUAGES CXX)
 
 set(platform_library $ENV{LIBHAL_PLATFORM_LIBRARY})
 set(platform $ENV{LIBHAL_PLATFORM})
@@ -31,11 +31,11 @@ add_executable(${PROJECT_NAME} main.cpp)
 target_compile_options(${PROJECT_NAME} PRIVATE -g -Wall -Wextra -Wpedantic)
 target_include_directories(${PROJECT_NAME} PUBLIC .)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
-target_link_options(${PROJECT_NAME} PRIVATE
-    -Wl,--wrap=__cxa_allocate_exception
-    -Wl,--wrap=__cxa_free_exception
-)
 
+# target_link_options(${PROJECT_NAME} PRIVATE
+# -Wl,--wrap=__cxa_allocate_exception
+# -Wl,--wrap=__cxa_free_exception
+# )
 target_link_libraries(${PROJECT_NAME} PRIVATE
     libhal::${platform_library}
     libhal::util)

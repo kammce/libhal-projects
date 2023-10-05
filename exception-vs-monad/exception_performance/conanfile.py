@@ -14,7 +14,6 @@
 
 from conan import ConanFile
 from conan.tools.cmake import CMake, cmake_layout
-from conan.errors import ConanInvalidConfiguration
 
 required_conan_version = ">=2.0.6"
 
@@ -30,10 +29,7 @@ class application(ConanFile):
         self.tool_requires("libhal-cmake-util/[2.1.1]")
 
     def requirements(self):
-        if str(self.options.platform).startswith("lpc40"):
-            self.requires("libhal-lpc40/[^2.1.4]")
-        if str(self.options.platform).startswith("stm32f1"):
-            self.requires("libhal-stm32f1/[^2.0.0]")
+        self.requires("libhal-lpc40/[^2.1.4]")
 
     def layout(self):
         platform_directory = "build/" + str(self.options.platform)

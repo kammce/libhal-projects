@@ -18,9 +18,10 @@
 #include <cstdint>
 #include <cstdlib>
 #include <exception>
+#include <span>
 #include <string_view>
 
-constexpr size_t error_size = 128;
+constexpr size_t error_size = 4;
 constexpr bool check_bounds_in_constructor = true;
 constexpr bool check_bounds_in_class_function = true;
 constexpr uint32_t depth_before_exception = 1000;
@@ -33,6 +34,19 @@ struct my_error_t
 volatile std::uint64_t enable_register;
 volatile std::uint64_t trigger_register;
 
+namespace hal {
+template<typename T>
+void safe_throw(T&& p_exception)
+{
+  static_assert(!std::is_polymorphic_v<T>,
+                "Safe throw objects cannot use polymorphic exceptions!");
+  static_assert(std::is_trivially_destructible_v<T>,
+                "Safe throw cannot MUST be nothrow assignable!");
+
+  throw p_exception;
+}
+}  // namespace hal
+
 class non_trivial_destructor
 {
 public:
@@ -41,7 +55,7 @@ public:
   {
     if constexpr (check_bounds_in_constructor) {
       if (p_channel >= depth_before_exception) {
-        throw my_error_t{ .data = { 0x55, 0xAA, 0x33, 0x44 } };
+        hal::safe_throw(my_error_t{ .data = { 0x55, 0xAA, 0x33, 0x44 } });
       }
     }
     enable_register = enable_register | (1 << (p_channel % 64));
@@ -62,7 +76,7 @@ public:
   {
     if constexpr (check_bounds_in_class_function) {
       if (m_channel >= depth_before_exception) {
-        throw my_error_t{ .data = { 0xAA, 0xBB, 0x33, 0x44 } };
+        hal::safe_throw(my_error_t{ .data = { 0xAA, 0xBB, 0x33, 0x44 } });
       }
     }
     trigger_register = trigger_register | (1 << (m_channel % 64));
@@ -71,6 +85,17 @@ public:
 private:
   uint32_t m_channel = 0;
 };
+
+[[noreturn]] void terminate() noexcept
+{
+  while (true) {
+    continue;
+  }
+}
+
+namespace __cxxabiv1 {
+std::terminate_handler __terminate_handler = terminate;
+}
 
 int return_error();
 int top_call()
@@ -84,7 +109,7 @@ int main()
   try {
     return_code = top_call();
   } catch (const my_error_t& p_error) {
-    return p_error.data[0];
+    return_code = p_error.data[0];
   } catch (...) {
     return 15;
   }
@@ -120,15 +145,23 @@ extern "C"
   {
     return 1;
   }
-}
 
-[[noreturn]] void terminate() noexcept
-{
-  while (true) {
-    continue;
+  std::array<std::uint8_t, 1024> storage;
+  std::span<std::uint8_t> storage_left(storage);
+  void* __wrap___cxa_allocate_exception(unsigned int p_size)
+  {
+    // I only know this needs to be 128 because of the disassembly. I cannot
+    // figure out why its needed yet, but maybe the answer is in the
+    // libunwind-arm.cpp file.
+    static constexpr size_t offset = 128;
+    if (p_size + offset > storage_left.size()) {
+      return nullptr;
+    }
+    auto* memory = &storage_left[offset];
+    storage_left = storage_left.subspan(p_size + offset);
+    return memory;
   }
-}
-
-namespace __cxxabiv1 {
-std::terminate_handler __terminate_handler = terminate;
+  void __wrap___cxa_free_exception(void*)
+  {
+  }
 }

@@ -23,7 +23,7 @@ constexpr bool error_in_constructor = false;
 constexpr bool error_in_class_function = false;
 constexpr bool depth_before_exception = 50;
 
-struct error_t
+struct my_error_t
 {
   std::array<std::uint8_t, error_size> data;
 };
@@ -34,12 +34,12 @@ volatile std::uint64_t trigger_register;
 class non_trivial_destructor
 {
 public:
-  static tl::expected<non_trivial_destructor, error_t> initialize(
+  static tl::expected<non_trivial_destructor, my_error_t> initialize(
     uint8_t p_channel)
   {
     if constexpr (error_in_constructor) {
       if (p_channel >= depth_before_exception) {
-        return tl::unexpected(error_t{ .data = { 0x55, 0xAA, 0x33, 0x44 } });
+        return tl::unexpected(my_error_t{ .data = { 0x55, 0xAA, 0x33, 0x44 } });
       }
     }
     enable_register = enable_register | (1 << p_channel);
@@ -51,11 +51,11 @@ public:
   non_trivial_destructor(non_trivial_destructor&&) = default;
   non_trivial_destructor& operator=(non_trivial_destructor&&) = default;
 
-  tl::expected<void, error_t> trigger()
+  tl::expected<void, my_error_t> trigger()
   {
     if constexpr (error_in_class_function) {
       if (m_channel >= depth_before_exception) {
-        tl::unexpected(error_t{ .data = { 0xAA, 0xBB, 0x33, 0x44 } });
+        tl::unexpected(my_error_t{ .data = { 0xAA, 0xBB, 0x33, 0x44 } });
       }
     }
     trigger_register = trigger_register | (1 << m_channel);
@@ -76,8 +76,8 @@ private:
   uint8_t m_channel = 0;
 };
 
-tl::expected<void, error_t> return_error();
-tl::expected<void, error_t> top_call()
+tl::expected<void, my_error_t> return_error();
+tl::expected<void, my_error_t> top_call()
 {
   auto result = return_error();
   if (!result) {
@@ -95,7 +95,7 @@ int main()
   return 0;
 }
 
-tl::expected<void, error_t> return_error()
+tl::expected<void, my_error_t> return_error()
 {
   auto result = non_trivial_destructor::initialize(50);
 

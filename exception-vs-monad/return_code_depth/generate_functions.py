@@ -23,12 +23,12 @@ _FILE_HEADER = """
 
 #include <tl/expected.hpp>
 
-constexpr size_t error_size = 128;
+constexpr size_t error_size = 4;
 constexpr bool error_in_constructor = true;
 constexpr bool error_in_class_function = true;
 constexpr uint8_t depth_before_exception = 50;
 
-struct error_t
+struct my_error_t
 {
   std::array<std::uint8_t, error_size> data;
 };
@@ -39,12 +39,12 @@ volatile std::uint64_t trigger_register;
 class non_trivial_destructor
 {
 public:
-  static tl::expected<non_trivial_destructor, error_t> initialize(
+  static tl::expected<non_trivial_destructor, my_error_t> initialize(
     uint8_t p_channel)
   {
     if constexpr (error_in_constructor) {
       if (p_channel >= depth_before_exception) {
-        return tl::unexpected(error_t{ .data = { 0x55, 0xAA, 0x33, 0x44 } });
+        return tl::unexpected(my_error_t{ .data = { 0x55, 0xAA, 0x33, 0x44 } });
       }
     }
     enable_register = enable_register | (1 << p_channel);
@@ -57,11 +57,11 @@ public:
   non_trivial_destructor& operator=(non_trivial_destructor&&) noexcept =
     default;
 
-  tl::expected<void, error_t> trigger()
+  tl::expected<void, my_error_t> trigger()
   {
     if constexpr (error_in_class_function) {
       if (m_channel >= depth_before_exception) {
-        tl::unexpected(error_t{ .data = { 0xAA, 0xBB, 0x33, 0x44 } });
+        tl::unexpected(my_error_t{ .data = { 0xAA, 0xBB, 0x33, 0x44 } });
       }
     }
     trigger_register = trigger_register | (1 << (m_channel % 64));
@@ -83,8 +83,8 @@ private:
   uint8_t m_channel = 0;
 };
 
-tl::expected<int, error_t> return_error();
-tl::expected<int, error_t> top_call()
+tl::expected<int, my_error_t> return_error();
+tl::expected<int, my_error_t> top_call()
 {
   auto result = return_error();
   if (!result) {
@@ -108,13 +108,13 @@ int main()
 """
 _RETURN_ERROR_FORMAT = """
 {forward_declarations}
-tl::expected<int, error_t> return_error()
+tl::expected<int, my_error_t> return_error()
 {{
 {usages}
   return {sum};
 }}
 """
-_RETURN_FORWARD_ENTRY = """tl::expected<int, error_t>
+_RETURN_FORWARD_ENTRY = """tl::expected<int, my_error_t>
 fallible_function0_group{group}();
 volatile int side_effect{group} = 0;
 """
@@ -125,10 +125,10 @@ _RETURN_ERROR_FORMAT_ENTRY = """
 _RETURN_SUM = """side_effect{group}"""
 
 _DEPTH_FUNCTION_FORMAT = """
-  tl::expected<int, error_t>
+  tl::expected<int, my_error_t>
   fallible_function{next_depth}_group{group}();
 
-  tl::expected<int, error_t>
+  tl::expected<int, my_error_t>
   fallible_function{depth}_group{group}()
   {{
     auto result_a = non_trivial_destructor::initialize({group});
@@ -164,7 +164,7 @@ _DEPTH_FUNCTION_FORMAT = """
   """
 
 _LAST_DEPTH_FUNCTION_FORMAT = """
-  tl::expected<int, error_t>
+  tl::expected<int, my_error_t>
   fallible_function{depth}_group{group}()
   {{
     if (auto result = non_trivial_destructor::initialize({depth}); result) {{
